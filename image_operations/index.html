@@ -1,0 +1,847 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Starlette Files Documentation.">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Image Operations - Starlette Files</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#image-operations" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Starlette Files" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Starlette Files
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Image Operations
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/accent-starlette/starlette-files" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    accent-starlette/starlette-files
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Starlette Files" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Starlette Files
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/accent-starlette/starlette-files" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    accent-starlette/starlette-files
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../storages/" title="Storages" class="md-nav__link">
+      Storages
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../handling_files/" title="Handling Files" class="md-nav__link">
+      Handling Files
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../handling_images/" title="Handling Images" class="md-nav__link">
+      Handling Images
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Image Operations
+      </label>
+    
+    <a href="./" title="Image Operations" class="md-nav__link md-nav__link--active">
+      Image Operations
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-operations" class="md-nav__link">
+    About Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-rendition" class="md-nav__link">
+    Creating a Rendition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    Filters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crop" class="md-nav__link">
+    Crop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-nothing" class="md-nav__link">
+    Do Nothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill" class="md-nav__link">
+    Fill
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-images-that-wont-upscale" class="md-nav__link">
+    On images that won’t upscale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cropping-closer-to-the-focal-point" class="md-nav__link">
+    Cropping closer to the focal point
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min-and-max" class="md-nav__link">
+    Min and Max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+    Scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#width-and-height" class="md-nav__link">
+    Width and Height
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../example/" title="Example" class="md-nav__link">
+      Example
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-operations" class="md-nav__link">
+    About Operations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-rendition" class="md-nav__link">
+    Creating a Rendition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    Filters
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crop" class="md-nav__link">
+    Crop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-nothing" class="md-nav__link">
+    Do Nothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fill" class="md-nav__link">
+    Fill
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-images-that-wont-upscale" class="md-nav__link">
+    On images that won’t upscale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cropping-closer-to-the-focal-point" class="md-nav__link">
+    Cropping closer to the focal point
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min-and-max" class="md-nav__link">
+    Min and Max
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale" class="md-nav__link">
+    Scale
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#width-and-height" class="md-nav__link">
+    Width and Height
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="image-operations">Image Operations</h1>
+<div class="admonition warning">
+<p class="admonition-title">Before you continue</p>
+<p>This section assumes you have worked through <a href="../handling_images">handling images</a>
+and that you have your image model setup using an <code>ImageAttachment</code> class.</p>
+</div>
+<h2 id="about-operations">About Operations</h2>
+<p>Lets say you have a bunch of images of random sizes and image formats such as <code>JPEG</code>
+and <code>PNG</code>, but you want a consistent file output of say 100x100 and all <code>PNG</code>. Thats
+is the purpose of these operations.
+They take an image, use <a href="https://pypi.org/project/Pillow/">pillow</a> to transform the image
+based on filters you specify and save a new version of the file.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>You have your <code>ImageAttachment</code> class and <code>Image</code> table like below:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">starlette_files.constants</span> <span class="kn">import</span> <span class="n">MB</span>
+<span class="kn">from</span> <span class="nn">starlette_files.fields</span> <span class="kn">import</span> <span class="n">ImageAttachment</span>
+
+<span class="k">class</span> <span class="nc">ImageType</span><span class="p">(</span><span class="n">ImageAttachment</span><span class="p">):</span>
+    <span class="c1"># your storage </span>
+    <span class="n">storage</span> <span class="o">=</span> <span class="n">my_storage</span>
+    <span class="c1"># directory in the stroage to save files to</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;images&quot;</span>
+    <span class="c1"># allowed content types</span>
+    <span class="n">allowed_content_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;image/jpeg&quot;</span><span class="p">,</span> <span class="s2">&quot;image/png&quot;</span><span class="p">]</span>
+    <span class="c1"># maximum allowed size in bytes</span>
+    <span class="n">max_length</span> <span class="o">=</span> <span class="n">MB</span> <span class="o">*</span> <span class="mi">5</span>
+
+<span class="k">class</span> <span class="nc">Image</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">ImageType</span><span class="o">.</span><span class="n">as_mutable</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">JSON</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Next create another SQLAlchemy field that uses <code>ImageRenditionAttachment</code>. This class uses
+an instance of an <code>ImageAttachment</code> and has functionality to apply operations
+on the file before being saved to the storage.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">starlette_files.fields</span> <span class="kn">import</span> <span class="n">ImageRenditionAttachment</span>
+
+<span class="k">class</span> <span class="nc">ImageRenditionType</span><span class="p">(</span><span class="n">ImageRenditionAttachment</span><span class="p">):</span>
+    <span class="n">storage</span> <span class="o">=</span> <span class="n">my_storage</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;renditions&quot;</span>
+</pre></div>
+
+
+<p>and create another table to store the images:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">ImageRendition</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">as_mutable</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">JSON</span><span class="p">))</span>
+    <span class="n">original_image_id</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;image.id&quot;</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">original_image</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Image&quot;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s2">&quot;renditions&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="creating-a-rendition">Creating a Rendition</h2>
+<p>Once you have an instance of your <code>Image</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">original_image</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Image</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+
+
+<p>you can create a new rendition of it using a filter:</p>
+<div class="codehilite"><pre><span></span><span class="n">rendition_obj</span> <span class="o">=</span> <span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">create_from</span><span class="p">(</span>
+    <span class="n">attachment</span><span class="o">=</span><span class="n">original_image</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+    <span class="n">filter_specs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;width-100&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>This will take the original image and make it 100px wide.
+You can then save it as normal:</p>
+<div class="codehilite"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="n">ImageRendition</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">rendition_obj</span><span class="p">,</span> <span class="n">original_image</span><span class="o">=</span><span class="n">original_image</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="filters">Filters</h2>
+<p>Below are the pre-existing filter operations.</p>
+<h3 id="crop">Crop</h3>
+<p>This allows you to take an image and crop it to a certain size. </p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;crop-</span><span class="si">{left}</span><span class="s2">x</span><span class="si">{top}</span><span class="s2">x</span><span class="si">{width}</span><span class="s2">x</span><span class="si">{height}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>For example an image of 200x200 that you want to crop to 100x100 in the center would be:</p>
+<div class="codehilite"><pre><span></span><span class="n">rendition_obj</span> <span class="o">=</span> <span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">create_from</span><span class="p">(</span>
+    <span class="n">attachment</span><span class="o">=</span><span class="n">original_image</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+    <span class="n">filter_specs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;crop-50x50x100x100&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3 id="do-nothing">Do Nothing</h3>
+<p>This as it sounds does nothing to the image and is useful if you want to still create
+the rendition but you do not want to change the image.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;original&quot;</span>
+</pre></div>
+
+
+<p>For example an image of 200x200 then you want to remain unchanged is:</p>
+<div class="codehilite"><pre><span></span><span class="n">rendition_obj</span> <span class="o">=</span> <span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">create_from</span><span class="p">(</span>
+    <span class="n">attachment</span><span class="o">=</span><span class="n">original_image</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+    <span class="n">filter_specs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;original&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3 id="fill">Fill</h3>
+<p>Resize and crop to fill the exact dimensions specified.</p>
+<p>This can be particularly useful for websites requiring square thumbnails of arbitrary images. 
+For example, a landscape image of width 2000 and height 1000 treated with the 
+fill200x200 rule would have its height reduced to 200, 
+then its width (ordinarily 400) cropped to 200.</p>
+<p>This resize-rule will crop to the image’s focal point if it has been set. 
+If not, it will crop to the centre of the image..</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;fill-</span><span class="si">{width}</span><span class="s2">x</span><span class="si">{height}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<h4 id="on-images-that-wont-upscale">On images that won’t upscale</h4>
+<p>It’s possible to request an image with fill dimensions that the image can’t 
+support without upscaling. e.g. an image of width 400 and height 200 requested 
+with fill-400x400. In this situation the ratio of the requested fill will be matched, 
+but the dimension will not. So that example 400x200 image (a 2:1 ratio) could become 
+200x200 (a 1:1 ratio, matching the resize-rule).</p>
+<p>For example an image of 200x200 then you want to fill a 200x100 space is:</p>
+<div class="codehilite"><pre><span></span><span class="n">rendition_obj</span> <span class="o">=</span> <span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">create_from</span><span class="p">(</span>
+    <span class="n">attachment</span><span class="o">=</span><span class="n">original_image</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+    <span class="n">filter_specs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;fill-200x100&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h4 id="cropping-closer-to-the-focal-point">Cropping closer to the focal point</h4>
+<p>By default, we will only crop enough to change the aspect ratio of the image to match the ratio in the resize-rule.</p>
+<p>In some cases (e.g. thumbnails), it may be preferable to crop closer to the focal point, so that the subject of the image is more prominent.</p>
+<p>You can do this by appending <code>-c&lt;percentage&gt;</code> at the end of the resize-rule. For example, if you would like the image to be cropped as closely as possible to its focal point, add <code>-c100</code>:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;fill-</span><span class="si">{width}</span><span class="s2">x</span><span class="si">{height}</span><span class="s2">-c100&quot;</span>
+</pre></div>
+
+
+<p>This will crop the image as much as it can, without cropping into the focal point.</p>
+<p>If you find that <code>-c100</code> is too close, you can try <code>-c75</code> or <code>-c50</code>. Any whole number from 0 to 100 is accepted.</p>
+<h3 id="format">Format</h3>
+<p>This is an operation that will change the format of the file. You can only use either
+<code>jpeg</code> or <code>png</code>.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;format-</span><span class="si">{format}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>For example an image of <code>png</code> then you want to save as a <code>jpeg</code> is:</p>
+<div class="codehilite"><pre><span></span><span class="n">rendition_obj</span> <span class="o">=</span> <span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">create_from</span><span class="p">(</span>
+    <span class="n">attachment</span><span class="o">=</span><span class="n">original_image</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+    <span class="n">filter_specs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;format-jpeg&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3 id="min-and-max">Min and Max</h3>
+<p><code>[min]</code></p>
+<p>This is to basically cover the given dimensions.</p>
+<p>This may result in an image slightly larger than the dimensions you specify. 
+A square image of width 2000 and height 2000, treated with the min-500x200 operation 
+would have its height and width changed to 500,
+i.e matching the width of the resize-rule, but greater than the height.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;min-</span><span class="si">{width}</span><span class="s2">x</span><span class="si">{height}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p><code>[max]</code></p>
+<p>Fit within the given dimensions.</p>
+<p>The longest edge will be reduced to the matching dimension specified.
+For example, a portrait image of width 1000 and height 2000, 
+treated with the max-1000x500 rule (a landscape layout) would result in the image 
+being shrunk so the height was 500 pixels and the width was 250.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;max-</span><span class="si">{width}</span><span class="s2">x</span><span class="si">{height}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<h3 id="scale">Scale</h3>
+<p>The scale operation reduces the image in size by the percentage specified.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;scale-</span><span class="si">{percent}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>For example an image of 200x100 that you scale to 50 would end up 100x50:</p>
+<div class="codehilite"><pre><span></span><span class="n">rendition_obj</span> <span class="o">=</span> <span class="n">ImageRenditionType</span><span class="o">.</span><span class="n">create_from</span><span class="p">(</span>
+    <span class="n">attachment</span><span class="o">=</span><span class="n">original_image</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+    <span class="n">filter_specs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;scale-50&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h3 id="width-and-height">Width and Height</h3>
+<p><code>[width]</code></p>
+<p>Reduces the width of the image to the dimension specified.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;width-</span><span class="si">{width}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p><code>[height]</code></p>
+<p>Reduces the height of the image to the dimension specified.</p>
+<p>The format required for this is:</p>
+<div class="codehilite"><pre><span></span><span class="sa">f</span><span class="s2">&quot;height-</span><span class="si">{height}</span><span class="s2">&quot;</span>
+</pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../handling_images/" title="Handling Images" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Handling Images
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../example/" title="Example" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Example
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
